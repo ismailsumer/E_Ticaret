@@ -1,0 +1,61 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Users\\ismai\\OneDrive\\Masaüstü\\ETicaretProjesi\\RestApi\\ETicaretAPI\\wwwroot\\uploads\\1933b4c1-d204-419c-8047-5ec87c77ae96.png",
+      "PackagePath": "staticwebassets\\uploads\\1933b4c1-d204-419c-8047-5ec87c77ae96.png"
+    },
+    {
+      "Id": "C:\\Users\\ismai\\OneDrive\\Masaüstü\\ETicaretProjesi\\RestApi\\ETicaretAPI\\wwwroot\\uploads\\4ba3e573-6de0-4092-a82e-dd63ef05a624.png",
+      "PackagePath": "staticwebassets\\uploads\\4ba3e573-6de0-4092-a82e-dd63ef05a624.png"
+    },
+    {
+      "Id": "C:\\Users\\ismai\\OneDrive\\Masaüstü\\ETicaretProjesi\\RestApi\\ETicaretAPI\\wwwroot\\uploads\\5d24a327-f704-4089-88cb-f0cce813bc3e.png",
+      "PackagePath": "staticwebassets\\uploads\\5d24a327-f704-4089-88cb-f0cce813bc3e.png"
+    },
+    {
+      "Id": "C:\\Users\\ismai\\OneDrive\\Masaüstü\\ETicaretProjesi\\RestApi\\ETicaretAPI\\wwwroot\\uploads\\95020e57-3c37-4c03-8251-3d0fcc1ba2e5.jpg",
+      "PackagePath": "staticwebassets\\uploads\\95020e57-3c37-4c03-8251-3d0fcc1ba2e5.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ismai\\OneDrive\\Masaüstü\\ETicaretProjesi\\RestApi\\ETicaretAPI\\wwwroot\\uploads\\a46e4004-4119-4398-9cb9-1b4155f1c070.png",
+      "PackagePath": "staticwebassets\\uploads\\a46e4004-4119-4398-9cb9-1b4155f1c070.png"
+    },
+    {
+      "Id": "C:\\Users\\ismai\\OneDrive\\Masaüstü\\ETicaretProjesi\\RestApi\\ETicaretAPI\\wwwroot\\uploads\\bd22bf79-a833-41d8-8d48-a4ff843d258d.png",
+      "PackagePath": "staticwebassets\\uploads\\bd22bf79-a833-41d8-8d48-a4ff843d258d.png"
+    },
+    {
+      "Id": "C:\\Users\\ismai\\OneDrive\\Masaüstü\\ETicaretProjesi\\RestApi\\ETicaretAPI\\wwwroot\\uploads\\cc385545-c429-4022-9138-23364d18eb89.png",
+      "PackagePath": "staticwebassets\\uploads\\cc385545-c429-4022-9138-23364d18eb89.png"
+    },
+    {
+      "Id": "C:\\Users\\ismai\\OneDrive\\Masaüstü\\ETicaretProjesi\\RestApi\\ETicaretAPI\\wwwroot\\uploads\\cfdadca8-04ab-45e2-b1fd-6f493cc5fa48.png",
+      "PackagePath": "staticwebassets\\uploads\\cfdadca8-04ab-45e2-b1fd-6f493cc5fa48.png"
+    },
+    {
+      "Id": "C:\\Users\\ismai\\OneDrive\\Masaüstü\\ETicaretProjesi\\RestApi\\ETicaretAPI\\wwwroot\\uploads\\fa2a3217-7af9-45df-9491-b52701df7884.png",
+      "PackagePath": "staticwebassets\\uploads\\fa2a3217-7af9-45df-9491-b52701df7884.png"
+    },
+    {
+      "Id": "obj\\Debug\\net9.0\\staticwebassets\\msbuild.ETicaretAPI.Microsoft.AspNetCore.StaticWebAssetEndpoints.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssetEndpoints.props"
+    },
+    {
+      "Id": "obj\\Debug\\net9.0\\staticwebassets\\msbuild.ETicaretAPI.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net9.0\\staticwebassets\\msbuild.build.ETicaretAPI.props",
+      "PackagePath": "build\\ETicaretAPI.props"
+    },
+    {
+      "Id": "obj\\Debug\\net9.0\\staticwebassets\\msbuild.buildMultiTargeting.ETicaretAPI.props",
+      "PackagePath": "buildMultiTargeting\\ETicaretAPI.props"
+    },
+    {
+      "Id": "obj\\Debug\\net9.0\\staticwebassets\\msbuild.buildTransitive.ETicaretAPI.props",
+      "PackagePath": "buildTransitive\\ETicaretAPI.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

@@ -1,0 +1,72 @@
+@model List<AdminPanel.ETicaretMVC.Models.DTOs.SiteSettingDto>
+
+<h2 class="mb-4">⚙️ Genel Ayarlar</h2>
+
+@if (TempData["Success"] != null)
+{
+    <div class="alert alert-success">@TempData["Success"]</div>
+}
+@if (TempData["Error"] != null)
+{
+    <div class="alert alert-danger">@TempData["Error"]</div>
+}
+
+<div class="row">
+    <div class="col-md-8">
+        <div class="card shadow-sm mb-3">
+            <div class="card-header bg-dark text-white">Mevcut Ayarlar</div>
+            <div class="card-body">
+                @if (Model.Any())
+                {
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Anahtar</th>
+                                <th>Değer</th>
+                                <th>İşlem</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var s in Model)
+                            {
+                                <tr>
+                                    <td><code>@s.Key</code></td>
+                                    <td>@s.Value</td>
+                                    <td>
+                                        <form asp-action="Save" method="post" class="d-flex gap-1">
+                                            <input type="hidden" name="key" value="@s.Key" />
+                                            <input type="text" name="value" value="@s.Value" class="form-control form-control-sm" style="width:200px;" />
+                                            <button type="submit" class="btn btn-sm btn-outline-primary">Güncelle</button>
+                                        </form>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                }
+                else
+                {
+                    <p class="text-muted">Henüz bir ayar tanımlanmamış.</p>
+                }
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card shadow-sm">
+            <div class="card-header bg-success text-white">➕ Yeni Ayar Ekle</div>
+            <div class="card-body">
+                <form asp-action="Save" method="post">
+                    <div class="mb-3">
+                        <label class="form-label">Anahtar</label>
+                        <input type="text" name="key" class="form-control" required placeholder="Örn: SiteTitle" />
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Değer</label>
+                        <input type="text" name="value" class="form-control" required placeholder="Örn: E-Ticaret Mağazası" />
+                    </div>
+                    <button type="submit" class="btn btn-success w-100">Kaydet</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

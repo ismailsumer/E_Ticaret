@@ -1,0 +1,80 @@
+@model AdminPanel.ETicaretMVC.Models.DTOs.OrderViewDto
+
+<h2 class="mb-4">📋 Sipariş Detay — #@Model.Id</h2>
+
+@if (TempData["Success"] != null)
+{
+    <div class="alert alert-success">@TempData["Success"]</div>
+}
+@if (TempData["Error"] != null)
+{
+    <div class="alert alert-danger">@TempData["Error"]</div>
+}
+
+<div class="row">
+    <div class="col-md-8">
+        <div class="card shadow-sm mb-3">
+            <div class="card-header bg-dark text-white">Sipariş Kalemleri</div>
+            <div class="card-body">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Ürün</th>
+                            <th>Adet</th>
+                            <th>Birim Fiyat</th>
+                            <th>Toplam</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model.Items)
+                        {
+                            <tr>
+                                <td>@item.ProductName</td>
+                                <td>@item.Quantity</td>
+                                <td>@item.Price.ToString("C2", new System.Globalization.CultureInfo("tr-TR"))</td>
+                                <td>@((item.Price * item.Quantity).ToString("C2", new System.Globalization.CultureInfo("tr-TR")))</td>
+                            </tr>
+                        }
+                    </tbody>
+                    <tfoot>
+                        <tr class="fw-bold">
+                            <td colspan="3" class="text-end">Genel Toplam:</td>
+                            <td>@Model.TotalPrice.ToString("C2", new System.Globalization.CultureInfo("tr-TR"))</td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card shadow-sm mb-3">
+            <div class="card-header bg-dark text-white">Sipariş Bilgileri</div>
+            <div class="card-body">
+                <p><strong>Kullanıcı:</strong> @Model.Username</p>
+                <p><strong>Tarih:</strong> @Model.OrderDate.ToString("dd.MM.yyyy HH:mm")</p>
+                <p><strong>Mevcut Durum:</strong>
+                    <span class="badge bg-info">@Model.Status</span>
+                </p>
+            </div>
+        </div>
+        <div class="card shadow-sm">
+            <div class="card-header bg-warning text-dark">Durum Güncelle</div>
+            <div class="card-body">
+                <form asp-action="UpdateStatus" method="post">
+                    <input type="hidden" name="id" value="@Model.Id" />
+                    <div class="mb-3">
+                        <select name="status" class="form-select">
+                            <option value="Beklemede" selected="@(Model.Status == "Beklemede")">Beklemede</option>
+                            <option value="Hazırlanıyor" selected="@(Model.Status == "Hazırlanıyor")">Hazırlanıyor</option>
+                            <option value="Kargoda" selected="@(Model.Status == "Kargoda")">Kargoda</option>
+                            <option value="Teslim Edildi" selected="@(Model.Status == "Teslim Edildi")">Teslim Edildi</option>
+                            <option value="İptal Edildi" selected="@(Model.Status == "İptal Edildi")">İptal Edildi</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-warning w-100">Güncelle</button>
+                </form>
+            </div>
+        </div>
+        <a asp-action="Index" class="btn btn-outline-secondary w-100 mt-3">← Siparişlere Dön</a>
+    </div>
+</div>

@@ -1,0 +1,279 @@
+2026-02-09 02:37:16.046 +03:00 [INF] User profile is available. Using 'C:\Users\ismai\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-02-09 02:37:16.124 +03:00 [INF] Now listening on: http://localhost:5292
+2026-02-09 02:37:16.127 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-02-09 02:37:16.127 +03:00 [INF] Hosting environment: Development
+2026-02-09 02:37:16.128 +03:00 [INF] Content root path: C:\Users\ismai\OneDrive\Masaüstü\ETicaretProjesi\RestApi\ETicaretAPI
+2026-02-09 02:37:43.302 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5292/swagger/index.html - null null
+2026-02-09 02:37:43.415 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5292/swagger/index.html - 200 null text/html;charset=utf-8 114.6372ms
+2026-02-09 02:37:43.525 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5292/swagger/v1/swagger.json - null null
+2026-02-09 02:37:43.600 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5292/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 74.6528ms
+2026-02-09 02:41:23.991 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5292/api/products - null null
+2026-02-09 02:41:24.000 +03:00 [WRN] Failed to determine the https port for redirect.
+2026-02-09 02:41:24.057 +03:00 [INF] Executing endpoint 'ETicaretAPI.Controllers.ProductsController.GetAll (ETicaretAPI)'
+2026-02-09 02:41:24.083 +03:00 [INF] Route matched with {action = "GetAll", controller = "Products"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAll(Int32, Int32, System.String, System.Nullable`1[System.Int32], System.Nullable`1[System.Int32]) on controller ETicaretAPI.Controllers.ProductsController (ETicaretAPI).
+2026-02-09 02:41:25.431 +03:00 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM "Products" AS "p"
+2026-02-09 02:41:25.457 +03:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2026-02-09 02:41:25.459 +03:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2026-02-09 02:41:25.524 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT "p0"."Id", "p0"."BrandId", "p0"."CategoryId", "p0"."CreatedDate", "p0"."Description", "p0"."ImageUrl", "p0"."IsDeleted", "p0"."Name", "p0"."Price", "p0"."Stock", "p0"."UpdatedDate", "c"."Id", "c"."CreatedDate", "c"."Description", "c"."IsDeleted", "c"."Name", "c"."UpdatedDate", "b"."Id", "b"."IsActive", "b"."LogoUrl", "b"."Name"
+FROM (
+    SELECT "p"."Id", "p"."BrandId", "p"."CategoryId", "p"."CreatedDate", "p"."Description", "p"."ImageUrl", "p"."IsDeleted", "p"."Name", "p"."Price", "p"."Stock", "p"."UpdatedDate"
+    FROM "Products" AS "p"
+    LIMIT @__p_1 OFFSET @__p_0
+) AS "p0"
+INNER JOIN "Categories" AS "c" ON "p0"."CategoryId" = "c"."Id"
+INNER JOIN "Brands" AS "b" ON "p0"."BrandId" = "b"."Id"
+2026-02-09 02:41:25.538 +03:00 [INF] Executing OkObjectResult, writing value of type 'ETicaretAPI.Wrappers.PagedResponse`1[[System.Collections.Generic.List`1[[ETicaretAPI.DTOs.ProductViewDto, ETicaretAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-02-09 02:41:25.558 +03:00 [INF] Executed action ETicaretAPI.Controllers.ProductsController.GetAll (ETicaretAPI) in 1468.9771ms
+2026-02-09 02:41:25.559 +03:00 [INF] Executed endpoint 'ETicaretAPI.Controllers.ProductsController.GetAll (ETicaretAPI)'
+2026-02-09 02:41:25.563 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5292/api/products - 200 null application/json; charset=utf-8 1571.2602ms
+2026-02-09 02:42:28.692 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5292/api/products - null null
+2026-02-09 02:42:28.696 +03:00 [INF] Executing endpoint 'ETicaretAPI.Controllers.ProductsController.GetAll (ETicaretAPI)'
+2026-02-09 02:42:28.699 +03:00 [INF] Route matched with {action = "GetAll", controller = "Products"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAll(Int32, Int32, System.String, System.Nullable`1[System.Int32], System.Nullable`1[System.Int32]) on controller ETicaretAPI.Controllers.ProductsController (ETicaretAPI).
+2026-02-09 02:42:28.740 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM "Products" AS "p"
+2026-02-09 02:42:28.744 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT "p0"."Id", "p0"."BrandId", "p0"."CategoryId", "p0"."CreatedDate", "p0"."Description", "p0"."ImageUrl", "p0"."IsDeleted", "p0"."Name", "p0"."Price", "p0"."Stock", "p0"."UpdatedDate", "c"."Id", "c"."CreatedDate", "c"."Description", "c"."IsDeleted", "c"."Name", "c"."UpdatedDate", "b"."Id", "b"."IsActive", "b"."LogoUrl", "b"."Name"
+FROM (
+    SELECT "p"."Id", "p"."BrandId", "p"."CategoryId", "p"."CreatedDate", "p"."Description", "p"."ImageUrl", "p"."IsDeleted", "p"."Name", "p"."Price", "p"."Stock", "p"."UpdatedDate"
+    FROM "Products" AS "p"
+    LIMIT @__p_1 OFFSET @__p_0
+) AS "p0"
+INNER JOIN "Categories" AS "c" ON "p0"."CategoryId" = "c"."Id"
+INNER JOIN "Brands" AS "b" ON "p0"."BrandId" = "b"."Id"
+2026-02-09 02:42:28.747 +03:00 [INF] Executing OkObjectResult, writing value of type 'ETicaretAPI.Wrappers.PagedResponse`1[[System.Collections.Generic.List`1[[ETicaretAPI.DTOs.ProductViewDto, ETicaretAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-02-09 02:42:28.749 +03:00 [INF] Executed action ETicaretAPI.Controllers.ProductsController.GetAll (ETicaretAPI) in 49.4864ms
+2026-02-09 02:42:28.751 +03:00 [INF] Executed endpoint 'ETicaretAPI.Controllers.ProductsController.GetAll (ETicaretAPI)'
+2026-02-09 02:42:28.752 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5292/api/products - 200 null application/json; charset=utf-8 59.1381ms
+2026-02-09 02:43:06.208 +03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5292/api/Auth/register - application/json 46
+2026-02-09 02:43:06.216 +03:00 [INF] CORS policy execution successful.
+2026-02-09 02:43:06.218 +03:00 [INF] Executing endpoint 'ETicaretAPI.Controllers.AuthController.Register (ETicaretAPI)'
+2026-02-09 02:43:06.223 +03:00 [INF] Route matched with {action = "Register", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Register(ETicaretAPI.DTOs.UserRegisterDto) on controller ETicaretAPI.Controllers.AuthController (ETicaretAPI).
+2026-02-09 02:43:06.272 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@__request_Username_0='?' (Size = 5)], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "Users" AS "u"
+    WHERE "u"."Username" = @__request_Username_0)
+2026-02-09 02:43:06.351 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@p0='?' (Size = 64) (DbType = Binary), @p1='?' (Size = 128) (DbType = Binary), @p2='?' (Size = 8), @p3='?' (Size = 5)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "Users" ("PasswordHash", "PasswordSalt", "Role", "Username")
+VALUES (@p0, @p1, @p2, @p3)
+RETURNING "Id";
+2026-02-09 02:43:06.368 +03:00 [INF] Executing OkObjectResult, writing value of type 'ETicaretAPI.Wrappers.ServiceResponse`1[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-02-09 02:43:06.370 +03:00 [INF] Executed action ETicaretAPI.Controllers.AuthController.Register (ETicaretAPI) in 144.9653ms
+2026-02-09 02:43:06.371 +03:00 [INF] Executed endpoint 'ETicaretAPI.Controllers.AuthController.Register (ETicaretAPI)'
+2026-02-09 02:43:06.374 +03:00 [INF] Request finished HTTP/1.1 POST http://localhost:5292/api/Auth/register - 200 null application/json; charset=utf-8 165.5563ms
+2026-02-09 02:43:08.115 +03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5292/api/Auth/register - application/json 46
+2026-02-09 02:43:08.121 +03:00 [INF] CORS policy execution successful.
+2026-02-09 02:43:08.123 +03:00 [INF] Executing endpoint 'ETicaretAPI.Controllers.AuthController.Register (ETicaretAPI)'
+2026-02-09 02:43:08.124 +03:00 [INF] Route matched with {action = "Register", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Register(ETicaretAPI.DTOs.UserRegisterDto) on controller ETicaretAPI.Controllers.AuthController (ETicaretAPI).
+2026-02-09 02:43:08.128 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@__request_Username_0='?' (Size = 5)], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "Users" AS "u"
+    WHERE "u"."Username" = @__request_Username_0)
+2026-02-09 02:43:08.130 +03:00 [INF] Executing OkObjectResult, writing value of type 'ETicaretAPI.Wrappers.ServiceResponse`1[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-02-09 02:43:08.132 +03:00 [INF] Executed action ETicaretAPI.Controllers.AuthController.Register (ETicaretAPI) in 6.1615ms
+2026-02-09 02:43:08.133 +03:00 [INF] Executed endpoint 'ETicaretAPI.Controllers.AuthController.Register (ETicaretAPI)'
+2026-02-09 02:43:08.135 +03:00 [INF] Request finished HTTP/1.1 POST http://localhost:5292/api/Auth/register - 200 null application/json; charset=utf-8 20.1307ms
+2026-02-09 02:43:36.456 +03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5292/api/Auth/login - application/json 46
+2026-02-09 02:43:36.461 +03:00 [INF] CORS policy execution successful.
+2026-02-09 02:43:36.463 +03:00 [INF] Executing endpoint 'ETicaretAPI.Controllers.AuthController.Login (ETicaretAPI)'
+2026-02-09 02:43:36.466 +03:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(ETicaretAPI.DTOs.UserLoginDto) on controller ETicaretAPI.Controllers.AuthController (ETicaretAPI).
+2026-02-09 02:43:36.478 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@__request_Username_0='?' (Size = 5)], CommandType='"Text"', CommandTimeout='30']
+SELECT "u"."Id", "u"."PasswordHash", "u"."PasswordSalt", "u"."Role", "u"."Username"
+FROM "Users" AS "u"
+WHERE "u"."Username" = @__request_Username_0
+LIMIT 1
+2026-02-09 02:43:36.504 +03:00 [INF] Executing OkObjectResult, writing value of type 'ETicaretAPI.Wrappers.ServiceResponse`1[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-02-09 02:43:36.505 +03:00 [INF] Executed action ETicaretAPI.Controllers.AuthController.Login (ETicaretAPI) in 37.9222ms
+2026-02-09 02:43:36.507 +03:00 [INF] Executed endpoint 'ETicaretAPI.Controllers.AuthController.Login (ETicaretAPI)'
+2026-02-09 02:43:36.508 +03:00 [INF] Request finished HTTP/1.1 POST http://localhost:5292/api/Auth/login - 200 null application/json; charset=utf-8 52.3756ms
+2026-02-09 02:43:37.845 +03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5292/api/Auth/login - application/json 46
+2026-02-09 02:43:37.849 +03:00 [INF] CORS policy execution successful.
+2026-02-09 02:43:37.850 +03:00 [INF] Executing endpoint 'ETicaretAPI.Controllers.AuthController.Login (ETicaretAPI)'
+2026-02-09 02:43:37.851 +03:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(ETicaretAPI.DTOs.UserLoginDto) on controller ETicaretAPI.Controllers.AuthController (ETicaretAPI).
+2026-02-09 02:43:37.854 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@__request_Username_0='?' (Size = 5)], CommandType='"Text"', CommandTimeout='30']
+SELECT "u"."Id", "u"."PasswordHash", "u"."PasswordSalt", "u"."Role", "u"."Username"
+FROM "Users" AS "u"
+WHERE "u"."Username" = @__request_Username_0
+LIMIT 1
+2026-02-09 02:43:37.857 +03:00 [INF] Executing OkObjectResult, writing value of type 'ETicaretAPI.Wrappers.ServiceResponse`1[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-02-09 02:43:37.859 +03:00 [INF] Executed action ETicaretAPI.Controllers.AuthController.Login (ETicaretAPI) in 5.3274ms
+2026-02-09 02:43:37.860 +03:00 [INF] Executed endpoint 'ETicaretAPI.Controllers.AuthController.Login (ETicaretAPI)'
+2026-02-09 02:43:37.861 +03:00 [INF] Request finished HTTP/1.1 POST http://localhost:5292/api/Auth/login - 200 null application/json; charset=utf-8 16.1363ms
+2026-02-09 02:43:48.267 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5292/api/products - null null
+2026-02-09 02:43:48.270 +03:00 [INF] Executing endpoint 'ETicaretAPI.Controllers.ProductsController.GetAll (ETicaretAPI)'
+2026-02-09 02:43:48.271 +03:00 [INF] Route matched with {action = "GetAll", controller = "Products"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAll(Int32, Int32, System.String, System.Nullable`1[System.Int32], System.Nullable`1[System.Int32]) on controller ETicaretAPI.Controllers.ProductsController (ETicaretAPI).
+2026-02-09 02:43:48.275 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM "Products" AS "p"
+2026-02-09 02:43:48.278 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT "p0"."Id", "p0"."BrandId", "p0"."CategoryId", "p0"."CreatedDate", "p0"."Description", "p0"."ImageUrl", "p0"."IsDeleted", "p0"."Name", "p0"."Price", "p0"."Stock", "p0"."UpdatedDate", "c"."Id", "c"."CreatedDate", "c"."Description", "c"."IsDeleted", "c"."Name", "c"."UpdatedDate", "b"."Id", "b"."IsActive", "b"."LogoUrl", "b"."Name"
+FROM (
+    SELECT "p"."Id", "p"."BrandId", "p"."CategoryId", "p"."CreatedDate", "p"."Description", "p"."ImageUrl", "p"."IsDeleted", "p"."Name", "p"."Price", "p"."Stock", "p"."UpdatedDate"
+    FROM "Products" AS "p"
+    LIMIT @__p_1 OFFSET @__p_0
+) AS "p0"
+INNER JOIN "Categories" AS "c" ON "p0"."CategoryId" = "c"."Id"
+INNER JOIN "Brands" AS "b" ON "p0"."BrandId" = "b"."Id"
+2026-02-09 02:43:48.281 +03:00 [INF] Executing OkObjectResult, writing value of type 'ETicaretAPI.Wrappers.PagedResponse`1[[System.Collections.Generic.List`1[[ETicaretAPI.DTOs.ProductViewDto, ETicaretAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-02-09 02:43:48.283 +03:00 [INF] Executed action ETicaretAPI.Controllers.ProductsController.GetAll (ETicaretAPI) in 10.0198ms
+2026-02-09 02:43:48.285 +03:00 [INF] Executed endpoint 'ETicaretAPI.Controllers.ProductsController.GetAll (ETicaretAPI)'
+2026-02-09 02:43:48.286 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5292/api/products - 200 null application/json; charset=utf-8 19.223ms
+2026-02-09 02:43:58.204 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5292/api/Categories - null null
+2026-02-09 02:43:58.213 +03:00 [INF] Executing endpoint 'ETicaretAPI.Controllers.CategoriesController.Get (ETicaretAPI)'
+2026-02-09 02:43:58.216 +03:00 [INF] Route matched with {action = "Get", controller = "Categories"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Get() on controller ETicaretAPI.Controllers.CategoriesController (ETicaretAPI).
+2026-02-09 02:43:58.228 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "c"."Id", "c"."CreatedDate", "c"."Description", "c"."IsDeleted", "c"."Name", "c"."UpdatedDate"
+FROM "Categories" AS "c"
+2026-02-09 02:43:58.247 +03:00 [INF] Executing OkObjectResult, writing value of type 'ETicaretAPI.Wrappers.ServiceResponse`1[[System.Collections.Generic.List`1[[ETicaretAPI.DTOs.CategoryViewDto, ETicaretAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-02-09 02:43:58.251 +03:00 [INF] Executed action ETicaretAPI.Controllers.CategoriesController.Get (ETicaretAPI) in 31.2799ms
+2026-02-09 02:43:58.252 +03:00 [INF] Executed endpoint 'ETicaretAPI.Controllers.CategoriesController.Get (ETicaretAPI)'
+2026-02-09 02:43:58.254 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5292/api/Categories - 200 null application/json; charset=utf-8 50.4612ms
+2026-02-09 02:54:37.148 +03:00 [INF] User profile is available. Using 'C:\Users\ismai\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-02-09 02:54:37.222 +03:00 [INF] Now listening on: http://localhost:5292
+2026-02-09 02:54:37.224 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-02-09 02:54:37.224 +03:00 [INF] Hosting environment: Development
+2026-02-09 02:54:37.225 +03:00 [INF] Content root path: C:\Users\ismai\OneDrive\Masaüstü\ETicaretProjesi\RestApi\ETicaretAPI
+2026-02-09 03:11:15.505 +03:00 [INF] User profile is available. Using 'C:\Users\ismai\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-02-09 03:11:15.579 +03:00 [INF] Now listening on: http://localhost:5292
+2026-02-09 03:11:15.581 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-02-09 03:11:15.582 +03:00 [INF] Hosting environment: Development
+2026-02-09 03:11:15.583 +03:00 [INF] Content root path: C:\Users\ismai\OneDrive\Masaüstü\ETicaretProjesi\RestApi\ETicaretAPI
+2026-02-09 03:24:56.191 +03:00 [INF] User profile is available. Using 'C:\Users\ismai\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-02-09 03:24:56.265 +03:00 [INF] Now listening on: http://localhost:5292
+2026-02-09 03:24:56.267 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-02-09 03:24:56.268 +03:00 [INF] Hosting environment: Development
+2026-02-09 03:24:56.268 +03:00 [INF] Content root path: C:\Users\ismai\OneDrive\Masaüstü\ETicaretProjesi\RestApi\ETicaretAPI
+2026-02-09 03:31:49.310 +03:00 [INF] User profile is available. Using 'C:\Users\ismai\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-02-09 03:31:49.387 +03:00 [INF] Now listening on: http://localhost:5292
+2026-02-09 03:31:49.390 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-02-09 03:31:49.391 +03:00 [INF] Hosting environment: Development
+2026-02-09 03:31:49.391 +03:00 [INF] Content root path: C:\Users\ismai\OneDrive\Masaüstü\ETicaretProjesi\RestApi\ETicaretAPI
+2026-02-09 03:32:00.746 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5292/swagger/index.html - null null
+2026-02-09 03:32:00.896 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5292/swagger/index.html - 200 null text/html;charset=utf-8 151.9183ms
+2026-02-09 03:32:00.959 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5292/swagger/v1/swagger.json - null null
+2026-02-09 03:32:01.056 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5292/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 97.8689ms
+2026-02-09 03:32:30.953 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5292/api/products - null null
+2026-02-09 03:32:30.962 +03:00 [WRN] Failed to determine the https port for redirect.
+2026-02-09 03:32:30.978 +03:00 [INF] Executing endpoint 'ETicaretAPI.Controllers.ProductsController.GetAll (ETicaretAPI)'
+2026-02-09 03:32:31.005 +03:00 [INF] Route matched with {action = "GetAll", controller = "Products"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAll(Int32, Int32, System.String, System.Nullable`1[System.Int32], System.Nullable`1[System.Int32]) on controller ETicaretAPI.Controllers.ProductsController (ETicaretAPI).
+2026-02-09 03:32:31.506 +03:00 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM "Products" AS "p"
+2026-02-09 03:32:31.530 +03:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2026-02-09 03:32:31.532 +03:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2026-02-09 03:32:31.593 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT "p0"."Id", "p0"."BrandId", "p0"."CategoryId", "p0"."CreatedDate", "p0"."Description", "p0"."ImageUrl", "p0"."IsDeleted", "p0"."Name", "p0"."Price", "p0"."Stock", "p0"."UpdatedDate", "c"."Id", "c"."CreatedDate", "c"."Description", "c"."IsDeleted", "c"."Name", "c"."UpdatedDate", "b"."Id", "b"."IsActive", "b"."LogoUrl", "b"."Name"
+FROM (
+    SELECT "p"."Id", "p"."BrandId", "p"."CategoryId", "p"."CreatedDate", "p"."Description", "p"."ImageUrl", "p"."IsDeleted", "p"."Name", "p"."Price", "p"."Stock", "p"."UpdatedDate"
+    FROM "Products" AS "p"
+    LIMIT @__p_1 OFFSET @__p_0
+) AS "p0"
+INNER JOIN "Categories" AS "c" ON "p0"."CategoryId" = "c"."Id"
+INNER JOIN "Brands" AS "b" ON "p0"."BrandId" = "b"."Id"
+2026-02-09 03:32:31.611 +03:00 [INF] Executing OkObjectResult, writing value of type 'ETicaretAPI.Wrappers.PagedResponse`1[[System.Collections.Generic.List`1[[ETicaretAPI.DTOs.ProductViewDto, ETicaretAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-02-09 03:32:31.623 +03:00 [INF] Executed action ETicaretAPI.Controllers.ProductsController.GetAll (ETicaretAPI) in 614.1731ms
+2026-02-09 03:32:31.624 +03:00 [INF] Executed endpoint 'ETicaretAPI.Controllers.ProductsController.GetAll (ETicaretAPI)'
+2026-02-09 03:32:31.628 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5292/api/products - 200 null application/json; charset=utf-8 674.4365ms
+2026-02-09 03:32:46.048 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5292/api/products - null null
+2026-02-09 03:32:46.052 +03:00 [INF] Executing endpoint 'ETicaretAPI.Controllers.ProductsController.GetAll (ETicaretAPI)'
+2026-02-09 03:32:46.053 +03:00 [INF] Route matched with {action = "GetAll", controller = "Products"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAll(Int32, Int32, System.String, System.Nullable`1[System.Int32], System.Nullable`1[System.Int32]) on controller ETicaretAPI.Controllers.ProductsController (ETicaretAPI).
+2026-02-09 03:32:46.095 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM "Products" AS "p"
+2026-02-09 03:32:46.101 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT "p0"."Id", "p0"."BrandId", "p0"."CategoryId", "p0"."CreatedDate", "p0"."Description", "p0"."ImageUrl", "p0"."IsDeleted", "p0"."Name", "p0"."Price", "p0"."Stock", "p0"."UpdatedDate", "c"."Id", "c"."CreatedDate", "c"."Description", "c"."IsDeleted", "c"."Name", "c"."UpdatedDate", "b"."Id", "b"."IsActive", "b"."LogoUrl", "b"."Name"
+FROM (
+    SELECT "p"."Id", "p"."BrandId", "p"."CategoryId", "p"."CreatedDate", "p"."Description", "p"."ImageUrl", "p"."IsDeleted", "p"."Name", "p"."Price", "p"."Stock", "p"."UpdatedDate"
+    FROM "Products" AS "p"
+    LIMIT @__p_1 OFFSET @__p_0
+) AS "p0"
+INNER JOIN "Categories" AS "c" ON "p0"."CategoryId" = "c"."Id"
+INNER JOIN "Brands" AS "b" ON "p0"."BrandId" = "b"."Id"
+2026-02-09 03:32:46.112 +03:00 [INF] Executing OkObjectResult, writing value of type 'ETicaretAPI.Wrappers.PagedResponse`1[[System.Collections.Generic.List`1[[ETicaretAPI.DTOs.ProductViewDto, ETicaretAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-02-09 03:32:46.115 +03:00 [INF] Executed action ETicaretAPI.Controllers.ProductsController.GetAll (ETicaretAPI) in 60.1709ms
+2026-02-09 03:32:46.116 +03:00 [INF] Executed endpoint 'ETicaretAPI.Controllers.ProductsController.GetAll (ETicaretAPI)'
+2026-02-09 03:32:46.117 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5292/api/products - 200 null application/json; charset=utf-8 68.7753ms
+2026-02-09 03:32:46.132 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5292/favicon.ico - null null
+2026-02-09 03:32:46.138 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5292/favicon.ico - 404 0 null 5.4146ms
+2026-02-09 03:32:46.142 +03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5292/favicon.ico, Response status code: 404
+2026-02-09 03:33:06.922 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5292/api/products - null null
+2026-02-09 03:33:06.926 +03:00 [INF] Executing endpoint 'ETicaretAPI.Controllers.ProductsController.GetAll (ETicaretAPI)'
+2026-02-09 03:33:06.927 +03:00 [INF] Route matched with {action = "GetAll", controller = "Products"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAll(Int32, Int32, System.String, System.Nullable`1[System.Int32], System.Nullable`1[System.Int32]) on controller ETicaretAPI.Controllers.ProductsController (ETicaretAPI).
+2026-02-09 03:33:06.944 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM "Products" AS "p"
+2026-02-09 03:33:06.946 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT "p0"."Id", "p0"."BrandId", "p0"."CategoryId", "p0"."CreatedDate", "p0"."Description", "p0"."ImageUrl", "p0"."IsDeleted", "p0"."Name", "p0"."Price", "p0"."Stock", "p0"."UpdatedDate", "c"."Id", "c"."CreatedDate", "c"."Description", "c"."IsDeleted", "c"."Name", "c"."UpdatedDate", "b"."Id", "b"."IsActive", "b"."LogoUrl", "b"."Name"
+FROM (
+    SELECT "p"."Id", "p"."BrandId", "p"."CategoryId", "p"."CreatedDate", "p"."Description", "p"."ImageUrl", "p"."IsDeleted", "p"."Name", "p"."Price", "p"."Stock", "p"."UpdatedDate"
+    FROM "Products" AS "p"
+    LIMIT @__p_1 OFFSET @__p_0
+) AS "p0"
+INNER JOIN "Categories" AS "c" ON "p0"."CategoryId" = "c"."Id"
+INNER JOIN "Brands" AS "b" ON "p0"."BrandId" = "b"."Id"
+2026-02-09 03:33:06.948 +03:00 [INF] Executing OkObjectResult, writing value of type 'ETicaretAPI.Wrappers.PagedResponse`1[[System.Collections.Generic.List`1[[ETicaretAPI.DTOs.ProductViewDto, ETicaretAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-02-09 03:33:06.950 +03:00 [INF] Executed action ETicaretAPI.Controllers.ProductsController.GetAll (ETicaretAPI) in 18.9873ms
+2026-02-09 03:33:06.951 +03:00 [INF] Executed endpoint 'ETicaretAPI.Controllers.ProductsController.GetAll (ETicaretAPI)'
+2026-02-09 03:33:06.952 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5292/api/products - 200 null application/json; charset=utf-8 30.5594ms
+2026-02-09 03:33:10.664 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5292/api/products - null null
+2026-02-09 03:33:10.669 +03:00 [INF] Executing endpoint 'ETicaretAPI.Controllers.ProductsController.GetAll (ETicaretAPI)'
+2026-02-09 03:33:10.673 +03:00 [INF] Route matched with {action = "GetAll", controller = "Products"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAll(Int32, Int32, System.String, System.Nullable`1[System.Int32], System.Nullable`1[System.Int32]) on controller ETicaretAPI.Controllers.ProductsController (ETicaretAPI).
+2026-02-09 03:33:10.677 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM "Products" AS "p"
+2026-02-09 03:33:10.681 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT "p0"."Id", "p0"."BrandId", "p0"."CategoryId", "p0"."CreatedDate", "p0"."Description", "p0"."ImageUrl", "p0"."IsDeleted", "p0"."Name", "p0"."Price", "p0"."Stock", "p0"."UpdatedDate", "c"."Id", "c"."CreatedDate", "c"."Description", "c"."IsDeleted", "c"."Name", "c"."UpdatedDate", "b"."Id", "b"."IsActive", "b"."LogoUrl", "b"."Name"
+FROM (
+    SELECT "p"."Id", "p"."BrandId", "p"."CategoryId", "p"."CreatedDate", "p"."Description", "p"."ImageUrl", "p"."IsDeleted", "p"."Name", "p"."Price", "p"."Stock", "p"."UpdatedDate"
+    FROM "Products" AS "p"
+    LIMIT @__p_1 OFFSET @__p_0
+) AS "p0"
+INNER JOIN "Categories" AS "c" ON "p0"."CategoryId" = "c"."Id"
+INNER JOIN "Brands" AS "b" ON "p0"."BrandId" = "b"."Id"
+2026-02-09 03:33:10.683 +03:00 [INF] Executing OkObjectResult, writing value of type 'ETicaretAPI.Wrappers.PagedResponse`1[[System.Collections.Generic.List`1[[ETicaretAPI.DTOs.ProductViewDto, ETicaretAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-02-09 03:33:10.684 +03:00 [INF] Executed action ETicaretAPI.Controllers.ProductsController.GetAll (ETicaretAPI) in 8.2888ms
+2026-02-09 03:33:10.685 +03:00 [INF] Executed endpoint 'ETicaretAPI.Controllers.ProductsController.GetAll (ETicaretAPI)'
+2026-02-09 03:33:10.686 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5292/api/products - 200 null application/json; charset=utf-8 22.1779ms
+2026-02-09 03:33:15.212 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5292/api/products - null null
+2026-02-09 03:33:15.215 +03:00 [INF] Executing endpoint 'ETicaretAPI.Controllers.ProductsController.GetAll (ETicaretAPI)'
+2026-02-09 03:33:15.216 +03:00 [INF] Route matched with {action = "GetAll", controller = "Products"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAll(Int32, Int32, System.String, System.Nullable`1[System.Int32], System.Nullable`1[System.Int32]) on controller ETicaretAPI.Controllers.ProductsController (ETicaretAPI).
+2026-02-09 03:33:15.220 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM "Products" AS "p"
+2026-02-09 03:33:15.223 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT "p0"."Id", "p0"."BrandId", "p0"."CategoryId", "p0"."CreatedDate", "p0"."Description", "p0"."ImageUrl", "p0"."IsDeleted", "p0"."Name", "p0"."Price", "p0"."Stock", "p0"."UpdatedDate", "c"."Id", "c"."CreatedDate", "c"."Description", "c"."IsDeleted", "c"."Name", "c"."UpdatedDate", "b"."Id", "b"."IsActive", "b"."LogoUrl", "b"."Name"
+FROM (
+    SELECT "p"."Id", "p"."BrandId", "p"."CategoryId", "p"."CreatedDate", "p"."Description", "p"."ImageUrl", "p"."IsDeleted", "p"."Name", "p"."Price", "p"."Stock", "p"."UpdatedDate"
+    FROM "Products" AS "p"
+    LIMIT @__p_1 OFFSET @__p_0
+) AS "p0"
+INNER JOIN "Categories" AS "c" ON "p0"."CategoryId" = "c"."Id"
+INNER JOIN "Brands" AS "b" ON "p0"."BrandId" = "b"."Id"
+2026-02-09 03:33:15.225 +03:00 [INF] Executing OkObjectResult, writing value of type 'ETicaretAPI.Wrappers.PagedResponse`1[[System.Collections.Generic.List`1[[ETicaretAPI.DTOs.ProductViewDto, ETicaretAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-02-09 03:33:15.226 +03:00 [INF] Executed action ETicaretAPI.Controllers.ProductsController.GetAll (ETicaretAPI) in 8.0652ms
+2026-02-09 03:33:15.227 +03:00 [INF] Executed endpoint 'ETicaretAPI.Controllers.ProductsController.GetAll (ETicaretAPI)'
+2026-02-09 03:33:15.228 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5292/api/products - 200 null application/json; charset=utf-8 16.3798ms
+2026-02-09 03:33:16.957 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5292/api/products - null null
+2026-02-09 03:33:16.959 +03:00 [INF] Executing endpoint 'ETicaretAPI.Controllers.ProductsController.GetAll (ETicaretAPI)'
+2026-02-09 03:33:16.960 +03:00 [INF] Route matched with {action = "GetAll", controller = "Products"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAll(Int32, Int32, System.String, System.Nullable`1[System.Int32], System.Nullable`1[System.Int32]) on controller ETicaretAPI.Controllers.ProductsController (ETicaretAPI).
+2026-02-09 03:33:16.964 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM "Products" AS "p"
+2026-02-09 03:33:16.966 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT "p0"."Id", "p0"."BrandId", "p0"."CategoryId", "p0"."CreatedDate", "p0"."Description", "p0"."ImageUrl", "p0"."IsDeleted", "p0"."Name", "p0"."Price", "p0"."Stock", "p0"."UpdatedDate", "c"."Id", "c"."CreatedDate", "c"."Description", "c"."IsDeleted", "c"."Name", "c"."UpdatedDate", "b"."Id", "b"."IsActive", "b"."LogoUrl", "b"."Name"
+FROM (
+    SELECT "p"."Id", "p"."BrandId", "p"."CategoryId", "p"."CreatedDate", "p"."Description", "p"."ImageUrl", "p"."IsDeleted", "p"."Name", "p"."Price", "p"."Stock", "p"."UpdatedDate"
+    FROM "Products" AS "p"
+    LIMIT @__p_1 OFFSET @__p_0
+) AS "p0"
+INNER JOIN "Categories" AS "c" ON "p0"."CategoryId" = "c"."Id"
+INNER JOIN "Brands" AS "b" ON "p0"."BrandId" = "b"."Id"
+2026-02-09 03:33:16.969 +03:00 [INF] Executing OkObjectResult, writing value of type 'ETicaretAPI.Wrappers.PagedResponse`1[[System.Collections.Generic.List`1[[ETicaretAPI.DTOs.ProductViewDto, ETicaretAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-02-09 03:33:16.971 +03:00 [INF] Executed action ETicaretAPI.Controllers.ProductsController.GetAll (ETicaretAPI) in 9.0453ms
+2026-02-09 03:33:16.972 +03:00 [INF] Executed endpoint 'ETicaretAPI.Controllers.ProductsController.GetAll (ETicaretAPI)'
+2026-02-09 03:33:16.973 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5292/api/products - 200 null application/json; charset=utf-8 16.1685ms

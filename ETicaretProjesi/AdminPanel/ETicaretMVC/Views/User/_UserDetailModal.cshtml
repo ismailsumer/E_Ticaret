@@ -1,0 +1,38 @@
+@model AdminPanel.ETicaretMVC.Models.DTOs.UserViewDto
+
+<div class="modal-header bg-dark text-white">
+    <h5 class="modal-title">👤 Kullanıcı Bilgileri</h5>
+    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+</div>
+<div class="modal-body">
+    <table class="table table-bordered mb-0">
+        <tr>
+            <th class="bg-light" style="width:40%">ID</th>
+            <td>@Model.Id</td>
+        </tr>
+        <tr>
+            <th class="bg-light">Kullanıcı Adı</th>
+            <td><strong>@Model.Username</strong></td>
+        </tr>
+        <tr>
+            <th class="bg-light">📞 Telefon Numarası</th>
+            <td>@(string.IsNullOrEmpty(Model.PhoneNumber) ? "Belirtilmemiş" : Model.PhoneNumber)</td>
+        </tr>
+        <tr>
+            <th class="bg-light">Rol</th>
+            <td>
+                @if (Model.Role == "Admin")
+                {
+                    <span class="badge bg-danger">Admin</span>
+                }
+                else
+                {
+                    <span class="badge bg-primary">Customer</span>
+                }
+            </td>
+        </tr>
+    </table>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Kapat</button>
+</div>

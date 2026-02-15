@@ -1,0 +1,43 @@
+﻿@model AdminPanel.ETicaretMVC.Models.DTOs.DashboardViewModel
+
+<h2 class="mb-4">📊 Dashboard</h2>
+
+@if (TempData["Error"] != null)
+{
+    <div class="alert alert-danger">@TempData["Error"]</div>
+}
+
+<div class="row g-4">
+    <div class="col-md-3">
+        <div class="card bg-primary text-white shadow">
+            <div class="card-body text-center">
+                <h1 class="display-4 fw-bold">@Model.TotalProducts</h1>
+                <p class="mb-0">📦 Toplam Ürün</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card bg-success text-white shadow">
+            <div class="card-body text-center">
+                <h1 class="display-4 fw-bold">@Model.TotalUsers</h1>
+                <p class="mb-0">👤 Toplam Kullanıcı</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card bg-warning text-dark shadow">
+            <div class="card-body text-center">
+                <h1 class="display-4 fw-bold">@Model.TotalOrders</h1>
+                <p class="mb-0">🛒 Toplam Sipariş</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card bg-info text-white shadow">
+            <div class="card-body text-center">
+                <h1 class="display-4 fw-bold">@Model.TotalComments</h1>
+                <p class="mb-0">💬 Toplam Yorum</p>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,124 @@
+@model List<AdminPanel.ETicaretMVC.Models.DTOs.UserViewDto>
+
+<h2 class="mb-4">👤 Kullanıcı Yönetimi</h2>
+
+@if (TempData["Success"] != null)
+{
+    <div class="alert alert-success">@TempData["Success"]</div>
+}
+@if (TempData["Error"] != null)
+{
+    <div class="alert alert-danger">@TempData["Error"]</div>
+}
+
+<div class="row">
+    <div class="col-md-8">
+        <div class="card shadow-sm">
+            <div class="card-header bg-dark text-white">Kullanıcılar</div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Kullanıcı Adı</th>
+                                <th>Rol</th>
+                                <th>Rol Değiştir</th>
+                                <th>İşlem</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var user in Model)
+                            {
+                                <tr>
+                                    <td>@user.Id</td>
+                                    <td><strong>@user.Username</strong></td>
+                                    <td>
+                                        @if (user.Role == "Admin")
+                                        {
+                                            <span class="badge bg-danger">Admin</span>
+                                        }
+                                        else
+                                        {
+                                            <span class="badge bg-primary">Customer</span>
+                                        }
+                                    </td>
+                                    <td>
+                                        <form asp-action="UpdateRole" method="post" class="d-flex gap-1">
+                                            <input type="hidden" name="id" value="@user.Id" />
+                                            <select name="role" class="form-select form-select-sm" style="width:120px;">
+                                                <option value="Admin" selected="@(user.Role == "Admin")">Admin</option>
+                                                <option value="Customer" selected="@(user.Role == "Customer")">Customer</option>
+                                            </select>
+                                            <button type="submit" class="btn btn-sm btn-outline-warning">Güncelle</button>
+                                        </form>
+                                    </td>
+                                    <td>
+                                        <button class="btn btn-sm btn-info text-white me-1" onclick="showUserDetail(@user.Id)">Bilgileri Gör</button>
+                                        <form asp-action="Delete" method="post" style="display:inline" onsubmit="return confirm('Bu kullanıcıyı silmek istediğinize emin misiniz?');">
+                                            <input type="hidden" name="id" value="@user.Id" />
+                                            <button type="submit" class="btn btn-sm btn-danger">Sil</button>
+                                        </form>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card shadow-sm">
+            <div class="card-header bg-success text-white">➕ Yeni Kullanıcı Ekle</div>
+            <div class="card-body">
+                <form asp-action="Create" method="post">
+                    <div class="mb-3">
+                        <label class="form-label">Kullanıcı Adı</label>
+                        <input type="text" name="username" class="form-control" required />
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Şifre</label>
+                        <input type="password" name="password" class="form-control" required minlength="4" />
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Rol</label>
+                        <select name="role" class="form-select">
+                            <option value="Admin">Admin</option>
+                            <option value="Customer">Customer</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-success w-100">Oluştur</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- User Detail Modal -->
+<div class="modal fade" id="userDetailModal" tabindex="-1" aria-labelledby="userDetailModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content" id="userDetailContent">
+            <div class="modal-body text-center py-5">
+                <div class="spinner-border" role="status"></div>
+                <p class="mt-2">Yükleniyor...</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function showUserDetail(userId) {
+        var modal = new bootstrap.Modal(document.getElementById('userDetailModal'));
+        document.getElementById('userDetailContent').innerHTML = '<div class="modal-body text-center py-5"><div class="spinner-border" role="status"></div><p class="mt-2">Yükleniyor...</p></div>';
+        modal.show();
+        fetch('/User/Details?id=' + userId)
+            .then(function(response) { return response.text(); })
+            .then(function(html) {
+                document.getElementById('userDetailContent').innerHTML = html;
+            })
+            .catch(function() {
+                document.getElementById('userDetailContent').innerHTML = '<div class="modal-body"><div class="alert alert-danger">Bilgiler yüklenemedi.</div></div>';
+            });
+    }
+</script>

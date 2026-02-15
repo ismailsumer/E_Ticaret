@@ -1,0 +1,60 @@
+@model AdminPanel.ETicaretMVC.Models.DTOs.ProductCreateViewModel
+
+<div class="container mt-4">
+    <h4>Yeni Ürün Ekle</h4>
+    <hr />
+
+    @if (TempData["Error"] != null)
+    {
+        <div class="alert alert-danger">@TempData["Error"]</div>
+    }
+    @if (TempData["Success"] != null)
+    {
+        <div class="alert alert-success">@TempData["Success"]</div>
+    }
+
+    <form asp-action="Create" enctype="multipart/form-data" method="post">
+        <div class="row">
+            <div class="col-md-6">
+                <label class="form-label">Ürün Adı</label>
+                <input asp-for="Name" class="form-control" required />
+
+                <label class="form-label mt-2">Açıklama</label>
+                <textarea asp-for="Description" class="form-control" rows="3" placeholder="Ürün açıklaması..."></textarea>
+
+                <label class="form-label mt-2">Fiyat</label>
+                <input asp-for="Price" type="number" step="0.01" min="0.01" class="form-control" required />
+
+                <label class="form-label mt-2">Stok</label>
+                <input asp-for="Stock" type="number" min="0" class="form-control" required />
+
+                <label class="form-label mt-2">Ürün Resmi</label>
+                <input asp-for="ImageFile" type="file" class="form-control" accept=".jpg,.jpeg,.png,.gif,.webp" />
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="form-label">Kategori Seçin</label>
+                    <select asp-for="CategoryId" class="form-control" required>
+                        <option value="">-- Kategori Seçiniz --</option>
+                        @foreach (var cat in (List<AdminPanel.ETicaretMVC.Models.DTOs.CategoryDto>)ViewBag.Categories)
+                        {
+                            <option value="@cat.Id">@cat.Name</option>
+                        }
+                    </select>
+                </div>
+                <div class="form-group mt-2">
+                    <label class="form-label">Marka Seçin</label>
+                    <select asp-for="BrandId" class="form-control" required>
+                        <option value="">-- Marka Seçiniz --</option>
+                        @foreach (var brand in (List<AdminPanel.ETicaretMVC.Models.DTOs.BrandDto>)ViewBag.Brands)
+                        {
+                            <option value="@brand.Id">@brand.Name</option>
+                        }
+                    </select>
+                </div>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-success mt-4">Kaydet</button>
+        <a asp-action="Index" class="btn btn-secondary mt-4">İptal</a>
+    </form>
+</div>

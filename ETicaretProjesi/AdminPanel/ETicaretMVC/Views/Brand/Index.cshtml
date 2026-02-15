@@ -1,0 +1,59 @@
+@model List<AdminPanel.ETicaretMVC.Controllers.BrandViewModel>
+@{
+    ViewData["Title"] = "Marka Yönetimi";
+}
+
+<div class="py-4">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2 class="fw-bold">🏷️ Marka Yönetimi</h2>
+    </div>
+
+    <!-- Add Brand Form -->
+    <div class="card border-0 shadow-sm mb-4">
+        <div class="card-body">
+            <form asp-action="Create" method="post" class="row g-3 align-items-end">
+                <div class="col-md-9">
+                    <label class="form-label fw-bold">Yeni Marka</label>
+                    <input type="text" name="name" class="form-control" placeholder="Marka adı girin..." required />
+                </div>
+                <div class="col-md-3">
+                    <button type="submit" class="btn btn-info w-100 text-white">➕ Ekle</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Brand List -->
+    <div class="card border-0 shadow-sm">
+        <div class="card-body">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Marka Adı</th>
+                        <th class="text-end">İşlem</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var brand in Model)
+                    {
+                        <tr>
+                            <td>@brand.Id</td>
+                            <td>@brand.Name</td>
+                            <td class="text-end">
+                                <form asp-action="Delete" method="post" style="display:inline">
+                                    <input type="hidden" name="id" value="@brand.Id" />
+                                    <button type="submit" class="btn btn-sm btn-outline-danger" onclick="return confirm('Silmek istediğinize emin misiniz?')">🗑️ Sil</button>
+                                </form>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+            @if (!Model.Any())
+            {
+                <p class="text-center text-muted py-3">Henüz marka eklenmemiş.</p>
+            }
+        </div>
+    </div>
+</div>
