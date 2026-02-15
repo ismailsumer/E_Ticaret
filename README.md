@@ -186,16 +186,16 @@ ETicaretProjesi/
 ---
 
 ## 📷 Ekran Görüntüleri
+## 📷 Ekran Görüntüleri
+# Frontend 
+1. Giriş ekranı 
+<img width="1814" height="952" alt="Ekran görüntüsü 2026-02-15 143621" src="https://github.com/user-attachments/assets/bdf9ef9d-f2b1-4622-ba38-bad89a993280" />
+2. Kayıt olma 
+<img width="1910" height="870" alt="Ekran görüntüsü 2026-02-15 143929" src="https://github.com/user-attachments/assets/868b1d30-308b-418b-80f8-39ea8e8fc34d" />
 
-| Ana Sayfa | Ürün Detay |
-|-----------|------------|
-| ![Ana Sayfa](https://via.placeholder.com/400x200?text=Ana+Sayfa) | ![Ürün Detay](https://via.placeholder.com/400x200?text=%C3%9Cr%C3%BCn+Detay) |
 
-| Sepet | Admin Paneli |
-|-------|--------------|
-| ![Sepet](https://via.placeholder.com/400x200?text=Sepet) | ![Admin Panel](https://via.placeholder.com/400x200?text=Admin+Panel) |
 
----
+
 
 ## 🤝 Katkıda Bulunma
 
